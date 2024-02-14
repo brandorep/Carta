@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Redireccionamiento</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fce4ec; /* Color de fondo */
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      margin: 20px; /* Espacio a la derecha para el video */
+      max-width: calc(100% - 20%); /* Ancho máximo de la carta */
+    }
+
+    .card h1 {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .card p {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .video-container {
+      width: 20%; /* Tamaño del video */
+      margin-top: 20px; /* Espacio entre la carta y el video */
+    }
+
+    #myVideo {
+      width: 100%;
+      height: auto;
+    }
+
+    @media only screen and (max-width: 390px) {
+      .container {
+        flex-direction: column; /* Cambia a diseño de columna en dispositivos móviles */
+        align-items: center; /* Centra los elementos en dispositivos móviles */
+      }
+      
+      .card {
+        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
+        margin-left: 0; /* Elimina el margen derecho en dispositivos móviles */
+        max-width: 65%; /* La carta ocupa todo el ancho en dispositivos móviles */
+        margin-bottom: 20px; /* Espacio entre la carta y el video en dispositivos móviles */
+        margin-top: 270px;
+      }
+
+      .video-container {
+        width: 80%; /* El video ocupa todo el ancho en dispositivos móviles */
+        height: 500px;
+      }
+
+      .rata{
+        padding-bottom: 15px;
+      
+
+      }
+     
+
+    
+  }
+
+    
+    /* Estilos adicionales según tus preferencias */
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <h1>¡Hola Amorchi!</h1>
+    <p>Bueno amorcito espero que recibas esta carta que lo hice.</p>
+    <p>Con mucho cariño y sudor ❤️ solo vine a decirte que.</p>
+    <p>¡Te amo! Y que sos la niña mas importante </p>
+    <p>En mi Vida 💝</p>
+  </div>
+
+  <div class="video-container" style="margin-left: 50px;margin-right: 50px;border-bottom-width: 10px;margin-bottom: 10px;">
+    <!-- Aquí inserta tu video -->
+    <video id="myVideo" autoplay loop style="height: 550px">
+      <source src="video/video.mp4" type="video/mp4">
+      Tu navegador no soporta el formato de video.
+    </video>
+    <div class="rata" style="padding-left: 30px;"> <!-- Ajusta el padding según sea necesario -->
+      <img id="playPauseBtn" src="iconos/play.png" onclick="playPause()" style="cursor: pointer;">
+      <input type="range" id="volumeRange" min="0" max="1" step="0.1" value="1" onchange="setVolume()">
+    </div>
+  </div>
+</div>
+
+<a href="index.html"><img src="iconos/volver.png" alt="Volver al inicio" style="position: absolute; top: 20px; left: 20px;"></a>
+
+
+<script>
+  var myVideo = document.getElementById("myVideo");
+  var volumeRange = document.getElementById("volumeRange");
+  var playPauseBtn = document.getElementById("playPauseBtn");
+
+  function playPause() {
+    if (myVideo.paused) {
+      myVideo.play();
+      playPauseBtn.src = "iconos/pausa.png"; // Cambia la imagen a pausa
+    } else {
+      myVideo.pause();
+      playPauseBtn.src = "iconos/play.png"; // Cambia la imagen a play
+    }
+  }
+
+  function setVolume() {
+    myVideo.volume = volumeRange.value;
+  }
+
+  function goToIndex() {
+    window.location.href = "index.html"; // Redirecciona a index.html
+  }
+</script>
+
+</body>
+</html>
